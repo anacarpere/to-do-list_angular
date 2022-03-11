@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +7,14 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'project_todo';
+  atividades: Array<string> = ['aula de inglês' , 'almoço' , 'tomar água', 'pagar boleto']
+
+  @ViewChild('inputAluno')
+  input!: ElementRef
+
+  adicionarNome(valor:string): void {
+    this.atividades.push(valor)
+    this.input.nativeElement.value =''
+  }
+
 }
