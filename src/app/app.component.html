@@ -7,11 +7,11 @@
       <input StyledInput 
       placeholder="Adicione uma atividade" 
       #inputAtividade
-      (keyup.enter)="adicionarNome(inputAtividade.value)"
+      (keyup.enter)="incluirAtividade(inputAtividade.value)"
       >
     </app-input>
     <app-button
-    (eventoPersonalizado)="adicionarNome(inputAtividade.value)"
+    (eventoPersonalizado)="incluirAtividade(inputAtividade.value)"
     >
     </app-button>
   </div>
@@ -19,16 +19,16 @@
   <div class="container">
     <app-cmp 
     *ngFor="let atividade of atividades; let i = index" 
-    (eventoDelete)="deletarNome(i,1)"
+    (eventoDelete)="deletarAtividade(i,1)"
     >
       <div class="atividade">{{atividade}}</div>
     </app-cmp>
   </div>
    
   <div class="apagarTudo">
-    <p> Você tem {{atividades.length}} atividades pendentes </p>
+    <p> Você tem {{atividades?.length}} atividades pendentes </p>
     <app-button-delete 
-    (eventDeleteAll)="deletarTudo(0, atividades.length)" 
+    (eventDeleteAll)="deletarTudo(0)" 
     >
     </app-button-delete>
   </div>
