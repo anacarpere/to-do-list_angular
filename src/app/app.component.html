@@ -1,16 +1,37 @@
 <div class="wrapper">
+  
+  <h1>Lista de Tarefas</h1>
 
-  <app-cmp>
-    <p *ngFor="let atividade of atividades;">
-      {{atividade}}
-    </p>
-  </app-cmp>
-   
-  <app-input>
-      <input
+  <div class="novoInput">
+    <app-input>
+      <input StyledInput 
       placeholder="Adicione uma atividade" 
       #inputAtividade
       (keyup.enter)="adicionarNome(inputAtividade.value)"
       >
-  </app-input>
+    </app-input>
+    <app-button
+    (eventoPersonalizado)="adicionarNome(inputAtividade.value)"
+    >
+    </app-button>
+  </div>
+
+  <div class="container">
+    <app-cmp 
+    *ngFor="let atividade of atividades; let i = index" 
+    (eventoDelete)="deletarNome(i,1)"
+    >
+      <div class="atividade">{{atividade}}</div>
+    </app-cmp>
+  </div>
+   
+  <div class="apagarTudo">
+    <p> Você tem {{atividades.length}} atividades pendentes </p>
+    <app-button-delete 
+    (eventDeleteAll)="deletarTudo(0, atividades.length)" 
+    >
+    </app-button-delete>
+  </div>
+  
 </div>
+

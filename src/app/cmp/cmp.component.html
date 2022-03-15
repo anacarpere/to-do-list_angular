@@ -1,3 +1,7 @@
-<div>
-    <ng-content> </ng-content>
+<div class="inputAtividade">
+    <ng-content class="inputA"> </ng-content>
+    <button #botao mat-raised-button color="accent" (click)="emitirEventoDelete()">
+        <mat-icon>delete</mat-icon>
+      </button>   
 </div>
+

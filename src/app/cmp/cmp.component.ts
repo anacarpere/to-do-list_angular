@@ -1,15 +1,17 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-cmp',
   templateUrl: './cmp.component.html',
   styleUrls: ['./cmp.component.css']
 })
-export class CmpComponent implements OnInit {
+export class CmpComponent {
 
-  constructor() { }
+  @Output()
+  eventoDelete: EventEmitter<any> = new EventEmitter<any>()
 
-  ngOnInit(): void {
-  }
+  emitirEventoDelete(): void{
+    this.eventoDelete.emit()
 
+}
 }

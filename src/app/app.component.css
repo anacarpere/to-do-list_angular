@@ -5,3 +5,37 @@
     align-items: center;
     flex-direction: column;
 }
+
+.container {
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    width: 380px;
+    overflow-y: auto;
+
+}
+.atividade{
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    align-content: center;
+    width: 300px;
+    border-radius: 5px;
+    background-color: lightsteelblue;
+}
+.novoInput{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    width: 380px;
+}
+
+
+.apagarTudo{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    width: 380px;
+    align-items: baseline;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}
