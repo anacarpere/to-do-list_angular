@@ -1,16 +1,20 @@
-import { Component, ElementRef, ViewChild, EventEmitter, Output, Input } from '@angular/core';
+import { Component, ElementRef, ViewChild, EventEmitter, Output, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
+ 
   title = 'project_todo';
   
-  atividades: Array<string> = ['aula de inglês' , 'almoço' , 'tomar água', 'pagar boleto']
+  atividades: Array<string>  = ['aula de inglês' , 'almoço' , 'tomar água', 'pagar boleto']
 
   mostrarParagrafo: boolean= false
+
+  @Input()
+  arr: string | null  = ''
  
 
   @ViewChild('inputAtividade')
@@ -32,7 +36,14 @@ export class AppComponent {
     this.atividades.splice(valor, remove)
   }
 
+  ngOnInit(): void {
+    this.arr = localStorage.getItem('chave')
 
+    if(this.arr){
+      this.atividades = JSON.parse(this.arr)
+    }
+    console.log(this.atividades)
+  }
   
 }
 
